@@ -153,8 +153,11 @@ void osdDrawArtificialHorizon(displayPort_t *display, displayCanvas_t *canvas, c
         osdCanvasDrawArtificialHorizon(display, canvas, p, pitchAngle, rollAngle);
     } else {
 #endif
+
+    if (!msp_displayport_index) {
         osdDrawPointGetGrid(&gx, &gy, display, canvas, p);
         osdGridDrawArtificialHorizon(display, gx, gy, pitchAngle, rollAngle);
+    }
 #if defined(USE_CANVAS)
     }
 #endif
